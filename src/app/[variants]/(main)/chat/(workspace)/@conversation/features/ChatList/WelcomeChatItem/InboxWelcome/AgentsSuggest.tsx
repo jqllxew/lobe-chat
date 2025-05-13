@@ -8,12 +8,8 @@ import Link from 'next/link';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
-import useSWR from 'swr';
 import urlJoin from 'url-join';
 
-import { assistantService } from '@/services/assistant';
-import { useGlobalStore } from '@/store/global';
-import { globalGeneralSelectors } from '@/store/global/selectors';
 import { DiscoverAssistantItem } from '@/types/discover';
 
 const { Paragraph } = Typography;
@@ -54,19 +50,19 @@ const useStyles = createStyles(({ css, token, responsive }) => ({
 
 const AgentsSuggest = memo<{ mobile?: boolean }>(({ mobile }) => {
   const { t } = useTranslation('welcome');
-  const locale = useGlobalStore(globalGeneralSelectors.currentLanguage);
+  // const locale = useGlobalStore(globalGeneralSelectors.currentLanguage);
   const [sliceStart, setSliceStart] = useState(0);
 
-  const { data: assistantList, isLoading } = useSWR(
-    ['assistant-list', locale].join('-'),
-    async () => await assistantService.getAssistantList(),
-    {
-      refreshWhenOffline: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    },
-  );
-
+  // const { data: assistantList, isLoading } = useSWR(
+  //   ['assistant-list', locale].join('-'),
+  //   async () => await assistantService.getAssistantList(),
+  //   {
+  //     refreshWhenOffline: false,
+  //     revalidateOnFocus: false,
+  //     revalidateOnReconnect: false,
+  //   },
+  // );
+  const { data: assistantList, isLoading } = { data: [], isLoading: false };
   const { styles } = useStyles();
 
   const agentLength = mobile ? 2 : 4;
