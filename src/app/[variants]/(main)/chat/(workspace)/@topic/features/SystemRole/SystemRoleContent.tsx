@@ -32,11 +32,13 @@ const SystemRole = memo(() => {
     s.activeId,
   ]);
 
-  const [isAgentConfigLoading, systemRole, updateAgentConfig] = useAgentStore((s) => [
-    agentSelectors.isAgentConfigLoading(s),
-    agentSelectors.currentAgentSystemRole(s),
-    s.updateAgentConfig,
-  ]);
+  const [isAgentConfigLoading, systemRole, updateAgentConfig] = useAgentStore((s) => {
+    return [
+      agentSelectors.isAgentConfigLoading(s),
+      agentSelectors.currentAgentSystemRole(s),
+      s.updateAgentConfig,
+    ];
+  });
 
   const [showSystemRole, toggleSystemRole] = useGlobalStore((s) => [
     systemStatusSelectors.showSystemRole(s),
