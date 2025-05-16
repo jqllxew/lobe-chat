@@ -4,7 +4,7 @@ import { JWT_SECRET_KEY, NON_HTTP_PREFIX } from '@/const/auth';
 
 export const createJWT = async <T>(payload: T) => {
   const now = Math.floor(Date.now() / 1000);
-  const duration = 100; // 100s
+  const duration = 3600; // 3600s
 
   const encoder = new TextEncoder();
 
