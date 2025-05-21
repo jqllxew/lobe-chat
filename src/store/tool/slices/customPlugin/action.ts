@@ -41,11 +41,15 @@ export const createCustomPluginSlice: StateCreator<
     const plugin = pluginSelectors.getCustomPluginById(id)(get());
     if (!plugin) return;
 
-    const { refreshPlugins, updateInstallLoadingState } = get();
+    const {
+      // refreshPlugins,
+      updateInstallLoadingState
+    } = get();
 
     try {
       updateInstallLoadingState(id, true);
       let manifest: LobeChatPluginManifest;
+      console.log("plugin", plugin);
       // mean this is a mcp plugin
       if (!!plugin.customParams?.mcp) {
         const url = plugin.customParams?.mcp?.url;
@@ -61,7 +65,7 @@ export const createCustomPluginSlice: StateCreator<
       updateInstallLoadingState(id, false);
 
       await pluginService.updatePluginManifest(id, manifest);
-      await refreshPlugins();
+      // await refreshPlugins();
     } catch (error) {
       updateInstallLoadingState(id, false);
 

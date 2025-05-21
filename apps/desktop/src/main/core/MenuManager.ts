@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Menu } from 'electron';
 
 import { IMenuPlatform, MenuOptions, createMenuImpl } from '@/menus';

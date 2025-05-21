@@ -13,6 +13,7 @@ import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfi
 
 import AgentsSuggest from './AgentsSuggest';
 import QuestionSuggest from './QuestionSuggest';
+import PluginStoreInitializer from "@/components/PluginStoreInitializer";
 
 const useStyles = createStyles(({ css, responsive }) => ({
   container: css`
@@ -65,6 +66,7 @@ const InboxWelcome = memo(() => {
           </>
         )}
       </Flexbox>
+      <PluginStoreInitializer/>
     </Center>
   );
 });

@@ -14,6 +14,7 @@ import { chatSelectors } from '@/store/chat/selectors';
 import AutoScroll from '../AutoScroll';
 import SkeletonList from '../SkeletonList';
 import { VirtuosoContext } from './VirtuosoContext';
+import PluginStoreInitializer from "@/components/PluginStoreInitializer";
 
 interface VirtualizedListProps {
   dataSource: string[];
@@ -98,6 +99,7 @@ const VirtualizedList = memo<VirtualizedListProps>(({ mobile, dataSource, itemCo
           }}
         />
       </Flexbox>
+      <PluginStoreInitializer/>
     </VirtuosoContext>
   );
 });

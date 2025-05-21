@@ -1,4 +1,5 @@
 import { MainBroadcastEventKey, MainBroadcastParams } from '@lobechat/electron-client-ipc';
+// @ts-ignore
 import { BrowserWindow, BrowserWindowConstructorOptions, ipcMain, nativeTheme } from 'electron';
 import os from 'node:os';
 import { join } from 'node:path';
