@@ -37,16 +37,22 @@ export class ClientService implements IMessageService {
         .map(async (id) => FileModel.findById(id!)),
     )) as ChatFileItem[];
 
-    return messages.map((item) => ({
-      ...item,
-      imageList: fileList
-        .filter((file) => item.files?.includes(file.id) && file.fileType.startsWith('image'))
-        .map((file) => ({
-          alt: file.name,
-          id: file.id,
-          url: file.url,
-        })),
-    }));
+    const _messages = messages.map((item) => {
+      const imageList = fileList
+          .filter((file) => item.files?.includes(file.id) && file.fileType.startsWith('image'))
+          .map((file) => ({
+            alt: file.name,
+            id: file.id,
+            url: file.url,
+          }))
+      let content = item.content
+      for (let img of imageList) {
+        content += `[🔗](${img.url})`
+      }
+      return { ...item, content, imageList }
+    });
+    console.log("messages", _messages)
+    return _messages
   }
 
   async getAllMessages() {

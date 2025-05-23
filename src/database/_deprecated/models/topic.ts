@@ -115,7 +115,8 @@ class _TopicModel extends BaseModel {
   }
 
   async findById(id: string): Promise<DBModel<DB_Topic>> {
-    return this.table.get(id);
+    const data = this.table.get(id);
+    return data
   }
 
   async count() {

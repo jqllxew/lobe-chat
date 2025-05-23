@@ -17,9 +17,9 @@ export const initialPluginState: PluginState = {
 
 export const createInitialPluginState = async (): Promise<PluginState> => {
   const dynamicTools: LobeTool[] = []
-  const urls = process.env.NEXT_PUBLIC_BUILTIN_PLUGIN_URLS;
-  console.log(`开始加载外部插件\n ${urls}`)
+  const urls = process.env.NEXT_PUBLIC_CUSTOM_PLUGIN_URLS;
   if (urls && urls.length) {
+    console.log(`开始加载外部插件\n ${urls}`)
     const _urls = urls.replaceAll('，', ',').split(',')
       .map(u => u.trim()).filter(Boolean)
     try {

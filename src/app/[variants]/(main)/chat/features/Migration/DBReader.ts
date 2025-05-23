@@ -7,6 +7,7 @@ import {
 } from '@/types/importer';
 
 interface V2DB_File {
+  accessUrl?: string;
   /**
    * create Time
    */
