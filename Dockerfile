@@ -7,6 +7,8 @@ FROM node:${NODEJS_VERSION}-slim AS base
 ARG USE_CN_MIRROR
 
 ENV DEBIAN_FRONTEND="noninteractive"
+# ENV http_proxy=http://172.18.202.1:7890
+# ENV https_proxy=http://172.18.202.1:7890
 
 RUN \
     # If you want to build docker in China, build with --build-arg USE_CN_MIRROR=true
