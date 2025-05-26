@@ -1,6 +1,6 @@
 import { SignJWT, importJWK } from 'jose';
-
-import { JWT_SECRET_KEY, NON_HTTP_PREFIX } from '@/const/auth';
+import { sha256 } from 'js-sha256';
+import { JWT_SECRET_KEY } from '@/const/auth';
 
 export const createJWT = async <T>(payload: T) => {
   const now = Math.floor(Date.now() / 1000);
@@ -8,16 +8,19 @@ export const createJWT = async <T>(payload: T) => {
 
   const encoder = new TextEncoder();
 
+  let secretKey;
   // fix the issue that crypto.subtle is not available in non-HTTPS environment
   // refs: https://github.com/lobehub/lobe-chat/pull/1238
-  if (!crypto.subtle) {
-    const buffer = encoder.encode(JSON.stringify(payload));
-
-    return `${NON_HTTP_PREFIX}.${Buffer.from(buffer).toString('base64')}`;
+  if (crypto.subtle) {
+    // create a secret key
+    secretKey = await crypto.subtle.digest('SHA-256', encoder.encode(JWT_SECRET_KEY));
+  } else {
+    // const buffer = encoder.encode(JSON.stringify(payload));
+    // return `${NON_HTTP_PREFIX}.${Buffer.from(buffer).toString('base64')}`;
+    secretKey = sha256.arrayBuffer(encoder.encode(JWT_SECRET_KEY));
   }
 
-  // create a secret key
-  const secretKey = await crypto.subtle.digest('SHA-256', encoder.encode(JWT_SECRET_KEY));
+
 
   // get the JWK from the secret key
   const jwkSecretKey = await importJWK(
