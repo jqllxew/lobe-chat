@@ -42,28 +42,28 @@ const Footer = memo<PropsWithChildren>(() => {
           width={'100%'}
         >
           <div style={{ textAlign: 'center' }}>
-            <Icon icon={MessageSquareHeart} /> {`${t('footer.title')} `}
-            <Link
-              aria-label={'star'}
-              href={GITHUB}
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenStar(true);
-              }}
-            >
-              {t('footer.action.star')}
-            </Link>
-            {` ${t('footer.and')} `}
-            <Link
-              aria-label={'feedback'}
-              href={GITHUB_ISSUES}
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenFeedback(true);
-              }}
-            >
-              {t('footer.action.feedback')}
-            </Link>
+            <Icon icon={MessageSquareHeart} /> {`感谢您的使用`}
+            {/*<Link*/}
+            {/*  aria-label={'star'}*/}
+            {/*  href={GITHUB}*/}
+            {/*  onClick={(e) => {*/}
+            {/*    e.preventDefault();*/}
+            {/*    setOpenStar(true);*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  {t('footer.action.star')}*/}
+            {/*</Link>*/}
+            {/*{` ${t('footer.and')} `}*/}
+            {/*<Link*/}
+            {/*  aria-label={'feedback'}*/}
+            {/*  href={GITHUB_ISSUES}*/}
+            {/*  onClick={(e) => {*/}
+            {/*    e.preventDefault();*/}
+            {/*    setOpenFeedback(true);*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  {t('footer.action.feedback')}*/}
+            {/*</Link>*/}
             {' !'}
           </div>
         </Center>

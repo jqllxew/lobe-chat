@@ -7,7 +7,9 @@ import { Flexbox } from 'react-layout-kit';
 
 import { ProductLogo } from '@/components/Branding';
 import { BRANDING_NAME } from '@/const/branding';
-import { CHANGELOG_URL, MANUAL_UPGRADE_URL, OFFICIAL_SITE } from '@/const/url';
+import {
+  // CHANGELOG_URL,
+  MANUAL_UPGRADE_URL, OFFICIAL_SITE } from '@/const/url';
 import { CURRENT_VERSION } from '@/const/version';
 import { useNewVersion } from '@/features/User/UserPanel/useNewVersion';
 import { useGlobalStore } from '@/store/global';
@@ -58,9 +60,9 @@ const Version = memo<{ mobile?: boolean }>(({ mobile }) => {
         </Flexbox>
       </Flexbox>
       <Flexbox flex={mobile ? 1 : undefined} gap={8} horizontal>
-        <Link href={CHANGELOG_URL} style={{ flex: 1 }} target={'_blank'}>
-          <Button block={mobile}>{t('changelog')}</Button>
-        </Link>
+        {/*<Link href={CHANGELOG_URL} style={{ flex: 1 }} target={'_blank'}>*/}
+        {/*  <Button block={mobile}>{t('changelog')}</Button>*/}
+        {/*</Link>*/}
         {hasNewVersion && (
           <Link href={MANUAL_UPGRADE_URL} style={{ flex: 1 }} target={'_blank'}>
             <Button block={mobile} type={'primary'}>

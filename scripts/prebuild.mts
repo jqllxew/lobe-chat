@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import { existsSync } from 'node:fs';
 import { rm } from 'node:fs/promises';
+// @ts-ignore
 import path from 'node:path';
 
 const isDesktop = process.env.NEXT_PUBLIC_IS_DESKTOP_APP === '1';

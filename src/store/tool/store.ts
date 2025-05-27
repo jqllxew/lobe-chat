@@ -17,13 +17,16 @@ export type ToolStore = ToolStoreState &
   PluginStoreAction &
   BuiltinToolAction;
 
-const createStore: StateCreator<ToolStore, [['zustand/devtools', never]]> = (...parameters) => ({
-  ...initialState,
-  ...createPluginSlice(...parameters),
-  ...createCustomPluginSlice(...parameters),
-  ...createPluginStoreSlice(...parameters),
-  ...createBuiltinToolSlice(...parameters),
-});
+const createStore: StateCreator<ToolStore, [['zustand/devtools', never]]> = (...parameters) => {
+  console.log(initialState)
+  return {
+    ...initialState,
+    ...createPluginSlice(...parameters),
+    ...createCustomPluginSlice(...parameters),
+    ...createPluginStoreSlice(...parameters),
+    ...createBuiltinToolSlice(...parameters),
+  }
+};
 
 //  ===============  实装 useStore ============ //
 

@@ -24,10 +24,13 @@ export interface TopActionProps {
 const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
   const { t } = useTranslation('common');
   const switchBackToChat = useGlobalStore((s) => s.switchBackToChat);
-  const { showMarket, enableKnowledgeBase } = useServerConfigStore(featureFlagsSelectors);
+  const {
+    showMarket,
+    // enableKnowledgeBase
+  } = useServerConfigStore(featureFlagsSelectors);
 
   const isChatActive = tab === SidebarTabKey.Chat && !isPinned;
-  const isFilesActive = tab === SidebarTabKey.Files;
+  // const isFilesActive = tab === SidebarTabKey.Files;
   const isDiscoverActive = tab === SidebarTabKey.Discover;
 
   return (
@@ -48,17 +51,17 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
           tooltipProps={{ placement: 'right' }}
         />
       </Link>
-      {enableKnowledgeBase && (
-        <Link aria-label={t('tab.files')} href={'/files'}>
-          <ActionIcon
-            active={isFilesActive}
-            icon={FolderClosed}
-            size={ICON_SIZE}
-            title={t('tab.files')}
-            tooltipProps={{ placement: 'right' }}
-          />
-        </Link>
-      )}
+      {/*{enableKnowledgeBase && (*/}
+      {/*  <Link aria-label={t('tab.files')} href={'/files'}>*/}
+      {/*    <ActionIcon*/}
+      {/*      active={isFilesActive}*/}
+      {/*      icon={FolderClosed}*/}
+      {/*      size={ICON_SIZE}*/}
+      {/*      title={t('tab.files')}*/}
+      {/*      tooltipProps={{ placement: 'right' }}*/}
+      {/*    />*/}
+      {/*  </Link>*/}
+      {/*)}*/}
       {showMarket && (
         <Link aria-label={t('tab.discover')} href={'/discover'}>
           <ActionIcon

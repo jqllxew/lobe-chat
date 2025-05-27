@@ -1,5 +1,5 @@
 import { Blocks } from 'lucide-react';
-import { Suspense, memo, useState } from 'react';
+import {Suspense, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import PluginStore from '@/features/PluginStore';
@@ -10,6 +10,7 @@ import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfi
 
 import Action from '../components/Action';
 import { useControls } from './useControls';
+import PluginStoreInitializer from "@/components/PluginStoreInitializer";
 
 const Tools = memo(() => {
   const { t } = useTranslation('setting');
@@ -42,6 +43,7 @@ const Tools = memo(() => {
         title={t('tools.title')}
       />
       <PluginStore open={modalOpen} setOpen={setModalOpen} />
+      <PluginStoreInitializer/>
     </Suspense>
   );
 });
