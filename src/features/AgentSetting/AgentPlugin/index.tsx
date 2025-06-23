@@ -22,6 +22,7 @@ import AddPluginButton from './AddPluginButton';
 import LoadingList from './LoadingList';
 import LocalPluginItem from './LocalPluginItem';
 import PluginAction from './PluginAction';
+import PluginStoreInitializer from "@/components/PluginStoreInitializer";
 
 const AgentPlugin = memo(() => {
   const { t } = useTranslation('setting');
@@ -157,6 +158,7 @@ const AgentPlugin = memo(() => {
     <>
       <PluginStore open={showStore} setOpen={setShowStore} />
       <Form items={[plugin]} itemsType={'group'} variant={'borderless'} {...FORM_STYLE} />
+      <PluginStoreInitializer/>
     </>
   );
 });

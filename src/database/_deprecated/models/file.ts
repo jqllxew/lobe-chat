@@ -40,8 +40,8 @@ class _FileModel extends BaseModel<'files'> {
             headers: headers,
             method: 'POST'
           })
-          const resJson = await res.json()
-          accessUrl = resJson.url
+          const resData = await res.json()
+          accessUrl = resData.url
           this.table.update(id, {...item, accessUrl})
         } catch (e) {
           console.error(e)

@@ -82,7 +82,9 @@ export const parseModelString = (modelString: string = '', withDeploymentName = 
         }
       }
     }
-
+    if (model.id && model.id.split('-').includes('s')) {
+      model.functionCall = true
+    }
     models.push(model);
   }
 

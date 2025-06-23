@@ -51,7 +51,9 @@ export class ClientService implements IMessageService {
       }
       return { ...item, content, imageList }
     });
-    console.log("messages", _messages)
+    if (_messages && _messages.length) {
+      console.log('messages', _messages)
+    }
     return _messages
   }
 
