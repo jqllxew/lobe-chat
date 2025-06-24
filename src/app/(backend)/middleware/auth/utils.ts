@@ -1,4 +1,4 @@
-import { type AuthObject } from '@clerk/backend';
+// import { type AuthObject } from '@clerk/backend';
 
 import { getAppConfig } from '@/config/app';
 import { enableClerk, enableNextAuth } from '@/const/auth';
@@ -8,7 +8,7 @@ import { ChatErrorType } from '@/types/fetch';
 interface CheckAuthParams {
   accessCode?: string;
   apiKey?: string;
-  clerkAuth?: AuthObject;
+  clerkAuth?: any;
   nextAuthAuthorized?: boolean;
 }
 /**
