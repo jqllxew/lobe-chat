@@ -4,10 +4,10 @@ import { FileUp, LucideImage } from 'lucide-react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useModelSupportFiles } from '@/hooks/useModelSupportFiles';
-import { useModelSupportVision } from '@/hooks/useModelSupportVision';
-import { useAgentStore } from '@/store/agent';
-import { agentSelectors } from '@/store/agent/slices/chat';
+// import { useModelSupportFiles } from '@/hooks/useModelSupportFiles';
+// import { useModelSupportVision } from '@/hooks/useModelSupportVision';
+// import { useAgentStore } from '@/store/agent';
+// import { agentSelectors } from '@/store/agent/slices/chat';
 import { useFileStore } from '@/store/file';
 
 const FileUpload = memo(() => {
@@ -15,11 +15,13 @@ const FileUpload = memo(() => {
 
   const upload = useFileStore((s) => s.uploadChatFiles);
 
-  const model = useAgentStore(agentSelectors.currentAgentModel);
-  const provider = useAgentStore(agentSelectors.currentAgentModelProvider);
+  // const model = useAgentStore(agentSelectors.currentAgentModel);
+  // const provider = useAgentStore(agentSelectors.currentAgentModelProvider);
 
-  const enabledFiles = useModelSupportFiles(model, provider);
-  const supportVision = useModelSupportVision(model, provider);
+  // useModelSupportFiles(model, provider);
+  const enabledFiles = true;
+  // useModelSupportVision(model, provider);
+  const supportVision = true;
   const canUpload = enabledFiles || supportVision;
 
   return (
