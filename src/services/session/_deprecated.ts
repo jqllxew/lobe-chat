@@ -25,7 +25,7 @@ export class ClientService implements ISessionService {
     type: LobeSessionType,
     defaultValue: Partial<LobeAgentSession>,
   ): Promise<string> {
-    const item = await SessionModel.create(type, defaultValue);
+    const item = await SessionModel.create(type, defaultValue, defaultValue.id || undefined);
     if (!item) {
       throw new Error('session create Error');
     }

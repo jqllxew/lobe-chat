@@ -27,8 +27,9 @@ export class ClientService extends BaseClientService implements ISessionService 
 
     const item = await this.sessionModel.create({
       config: { ...config, ...meta } as any,
+      id: session.id || undefined ,
       session: { ...session, groupId: group },
-      type,
+      type
     });
     if (!item) {
       throw new Error('session create Error');

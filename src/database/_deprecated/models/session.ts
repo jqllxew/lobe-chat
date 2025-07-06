@@ -168,6 +168,11 @@ class _SessionModel extends BaseModel {
   // **************** Create *************** //
 
   async create(type: 'agent' | 'group', defaultValue: Partial<LobeAgentSession>, id = uuid()) {
+    const _data = await this.findById(id)
+    if (_data) {
+      console.log(`已存在会话 ${id}`)
+      return
+    }
     const data = merge(DEFAULT_AGENT_LOBE_SESSION, { type, ...defaultValue });
     const dataDB = this.mapToDB_Session(data);
     return this._addWithSync(dataDB, id);

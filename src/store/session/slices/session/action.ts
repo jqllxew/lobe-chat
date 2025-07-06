@@ -102,7 +102,6 @@ export const createSessionSlice: StateCreator<
 
   createSession: async (agent, isSwitchSession = true) => {
     const { switchSession, refreshSessions } = get();
-
     // merge the defaultAgent in settings
     const defaultAgent = merge(
       DEFAULT_AGENT_LOBE_SESSION,

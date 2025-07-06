@@ -5,7 +5,9 @@ import { CustomSessionGroup, LobeAgentSession, LobeSessions } from '@/types/sess
 
 import { SessionStore } from '../../../store';
 
-const defaultSessions = (s: SessionStore): LobeSessions => s.defaultSessions;
+const defaultSessions = (s: SessionStore): LobeSessions => {
+   return s.defaultSessions;
+}
 const pinnedSessions = (s: SessionStore): LobeSessions => s.pinnedSessions;
 const customSessionGroups = (s: SessionStore): CustomSessionGroup[] => s.customSessionGroups;
 

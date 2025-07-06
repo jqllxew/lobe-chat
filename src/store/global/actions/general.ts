@@ -83,7 +83,7 @@ export const generalActionSlice: StateCreator<
           const currentMajorMinor = `${currentVersion.major}.${currentVersion.minor}.0`;
           const latestMajorMinor = `${latestVersion.major}.${latestVersion.minor}.0`;
           if (gt(latestMajorMinor, currentMajorMinor)) {
-            console.log(`当前：${currentMajorMinor}, 最新：${latestMajorMinor}`)
+            console.log(`当前版本：${currentMajorMinor}`)
             //   set({ hasNewVersion: true, latestVersion: data }, false, n('checkLatestVersion'));
           }
         },

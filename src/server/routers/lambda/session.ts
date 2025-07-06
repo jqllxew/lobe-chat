@@ -85,8 +85,9 @@ export const sessionRouter = router({
           })
           .passthrough()
           .partial(),
+        id: z.string().optional(),
         session: insertSessionSchema.omit({ createdAt: true, updatedAt: true }).partial(),
-        type: z.enum(['agent', 'group']),
+        type: z.enum(['agent', 'group'])
       }),
     )
     .mutation(async ({ input, ctx }) => {
